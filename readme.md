@@ -55,7 +55,7 @@ http://localhost:8080/
 
 ```shell-session:
 $ sudo docker ps -a    # コンテナを確認
-$ sudo docker exec -it node_server_db_app_1 /bin/bash
+$ sudo docker exec -it node_server_express_app_1 /bin/bash
 ```
 
 コンテナに入ることができたらかんたんなサーバーを作成してみます。
@@ -66,7 +66,7 @@ root@2f8cae89f1d7:/# npm init                       # 全部デフォルトでOK
 root@2f8cae89f1d7:/# npm install express --save     # expressのインストールと依存関係リスト追加
 ```
 
-次にローカルのディレクトリ/node_server/express_app/myappにapp.jsという名前でファイルを作成し、
+次にローカルのディレクトリ/node_server/express_app/myappにapp.jsという名前のファイルができているので、
 以下のように編集してみましょう。
 
 ```javascript:/node_server/express_app/myapp/app.js
@@ -81,10 +81,27 @@ app.listen(3000, () => console.log('Example app listening on port 3000!'))
 
 ```
 
-ローカル側で作成したこのファイルはコンテナ側にも反映されるはずです。
+ローカル側で編集したこのファイルはコンテナ側にも反映されるはずです。
+一応確認
+
+```shell-session
+$ cat app.js
+```
+
 これを実行してみましょう。
 
 ```shell-session
 $ cd /myapp
 $ node app.js
 ```
+自分のブラウザで
+http://localhost:3000
+を開いて見ましょう。
+HelloWorldが表示でいていればOKです。
+
+# 終了方法
+
+|---|---|
+|Ctrl + cまたはCmd + c|node.jsサーバーの停止|
+|exit|コンテナから出る場合|
+|sudo docker-compose down|docker-composeで定義されたすべてのコンテナを終了|
