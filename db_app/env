@@ -1,0 +1,4 @@
+MYSQL_ROOT_PASSWORD=root_password
+MYSQL_DATABASE=sample_db
+MYSQL_USER=my_user
+MYSQL_PASSWORD=aaaaaa

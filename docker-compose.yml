@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  db_app:
+    build: ./db_app
+    ports:
+      - 5555:3306
+    env_file:
+      - ./db_app/env
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart : always
+    ports:
+      - 8080:80
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=db_app
+      - PMA_USER=my_user
+      - PMA_PASSWORD=aaaaaa
+    depends_on:
+      - db_app
+    links:
+      - db_app
+  express_app:
+    build : ./express_app
+    tty : true
+    ports:
+      - 3000:3000
+    volumes:
+      - ./myapp:/myapp
+
