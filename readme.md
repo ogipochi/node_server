@@ -67,7 +67,7 @@ root@2f8cae89f1d7:/# npm install express --save     # expressのインストー�
 次にローカルのディレクトリ/node_server/express_app/myappにapp.jsという名前でファイルを作成し、
 以下のように編集してみましょう。
 
-```:/node_server/express_app/myapp/app.js
+```javascript:/node_server/express_app/myapp/app.js
 
 const express = require('express')
 const app = express()
