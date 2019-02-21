@@ -4,6 +4,7 @@
 データベースのパスワードやデータベース名、ユーザー名などはそれぞれ好きなものを入力してください
 
 ```:node_server/db_app/env
+# node_server/db_app/env
 
 MYSQL_ROOT_PASSWORD=root_password       # rootユーザーのパスワード
 MYSQL_DATABASE=sample_db                # データベース名
@@ -15,6 +16,7 @@ MYSQL_PASSWORD=aaaaaa                   # 上のユーザーのパスワード
 次に上で設定した内容に合わせるようにphpmyadminの設定をしましょう。
 
 ```:node_server/docker-compose.yml
+# node_server/docker-compose.yml
 
 [...]
 
@@ -68,6 +70,7 @@ root@2f8cae89f1d7:/# npm install express --save     # expressのインストー�
 以下のように編集してみましょう。
 
 ```javascript:/node_server/express_app/myapp/app.js
+// node_server/express_app/myapp/app.js
 
 const express = require('express')
 const app = express()
