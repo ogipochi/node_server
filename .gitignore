@@ -1,1 +1,3 @@
-myapp/*
+node_modules
+app.js
+package.json
